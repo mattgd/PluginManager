@@ -4,26 +4,25 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class pluginManagerCommand implements CommandExecutor 
 {
 	private final PluginManagerReloaded plugin;
 	
-	public pluginManagerCommand( PluginManagerReloaded pluginManagerReloaded )
+	public pluginManagerCommand( PluginManagerReloaded instance )
 	{
-		plugin = pluginManagerReloaded;
+		plugin = instance;
 	}
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] split)
     {
-    	Player player = (Player) sender;
     	
     	if( split.length == 0 )
         {
-        	player.sendMessage( ChatColor.GREEN + "|------------------" + ChatColor.GRAY + "PluginManagerReloaded Help" + ChatColor.GREEN + "------------------|" );
-        	player.sendMessage( ChatColor.GOLD + "/plm help <command> "+ ChatColor.AQUA +"- Command help" );
-        		
+    		String[] listArray = {"Help", "Enable", "Disable", "Load", "Unload", "Reload", "Sreload", "Show", "List"};
+	        sender.sendMessage( ChatColor.GREEN + "|------------------" + ChatColor.GRAY + "PluginManager Help" + ChatColor.GREEN + "------------------|" );
+	        for( String string : listArray )
+	        	sender.sendMessage( ChatColor.GOLD + "/" + label + " " + ChatColor.translateAlternateColorCodes( '&', plugin.language.getString( "Command.Description." + string ) ) );
         	return true;
         }
     	return false;

@@ -1,0 +1,17 @@
+name: PluginManager
+version: 0.0.1-Snapshot
+author: lvletei
+authors: [obnoxint, Technius]
+description: A plugin used for managing plugins
+soft-depends: [PerWorldPlugins, MCore]
+main: com.jadeningle.PluginManager.PluginManagerReloaded
+
+commands:
+    pluginmanager:
+        description: PluginManager commands
+        usage: /pm <arguments>
+        aliases: [plman, plm, pm]
+permissions:
+    pluginmanager.*:
+        default: false
+        description: Gives all PluginManager permissions

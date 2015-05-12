@@ -1,0 +1,11 @@
+Command:
+  Description:
+    Help: "help <command> &b- Command help"
+    Enable: "enable <plugin> &b- Enables a plugin"
+    Disable: "disable <plugin> &b- Disables a plugin"
+    Load: "load <plugin> &b- Loads a plugin(Must use a file name, no .jar needed)"
+    Unload: "unload <plugin> &b- Unloads a plugin"
+    Reload: "reload <plugin> &b- Unloads and loads a plugin"
+    Sreload: "sredload <plugin> &b- Disables and enables a plugin"
+    Show: "show <plugin> &b- Shows detailed information about a plugin"
+    List: "list [options] &b- Lists plugins with specified options"
