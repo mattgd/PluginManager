@@ -3,7 +3,6 @@
 # Do not remove these, otherwise messages will not be displayed correctly.
 Command:
   Description:
-    Help: "help <command> &b- Command help"
     Enable: "enable <plugin> &b- Enables a plugin"
     Disable: "disable <plugin> &b- Disables a plugin"
     Load: "load <plugin> &b- Loads a plugin(Must use a file name, no .jar needed)"
@@ -12,7 +11,7 @@ Command:
     Sreload: "sreload <plugin> &b- Disables and enables a plugin"
     Show: "show <plugin> &b- Shows detailed information about a plugin"
     List: "list [options] &b- Lists plugins with specified options"
-    ListOptions: "&eList options\\\n&e-v &6- Shows plugins with versions\\\n&e-o &6- Lists options\\\n&e-a &6- Lists plugins in alphabetical order\\\n&e-s:name &6- Lists plugins containing the given name"
+    ListOptions: "&eList options\n&e-v &6- Shows plugins with versions\n&e-o &6- Lists options\n&e-a &6- Lists plugins in alphabetical order\n&e-s:name &6- Lists plugins containing the given name"
 Response:
   Error:
     NoCommand: "&cCommand %2$s not found. Try /%1$s for help!"

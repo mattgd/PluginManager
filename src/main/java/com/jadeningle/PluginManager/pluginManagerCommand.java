@@ -42,7 +42,7 @@ public class pluginManagerCommand implements CommandExecutor {
     {
     	if( split.length == 0 )
     	{
-			String[] listArray = {"Help", "Enable", "Disable", "Load", "Unload", "Reload", "Sreload", "Show", "List"};
+			String[] listArray = {"Enable", "Disable", "Load", "Unload", "Reload", "Sreload", "Show", "List"};
 			sender.sendMessage( ChatColor.GREEN + "|------------------" + ChatColor.GRAY + "PluginManager Help" + ChatColor.GREEN + "------------------|" );
 			for( String string : listArray )
 				sender.sendMessage( ChatColor.GOLD + "/" + label + " " + ChatColor.translateAlternateColorCodes( '&', plugin.language.getString( "Command.Description." + string ) ) );
@@ -51,9 +51,6 @@ public class pluginManagerCommand implements CommandExecutor {
     	
     	switch( split[0].toLowerCase( ) )
     	{
-    		case "help":
-    		//TODO: Fill in help documentation AFTER basic plugin functions added
-				break;
     		case "enable":
     			return enablePluginCommand( sender, label, split );
 			case "disable":
@@ -74,7 +71,6 @@ public class pluginManagerCommand implements CommandExecutor {
 				sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Error.NoCommand" ), label, split[0] ) ) );
 				return true;
     	}
-    	return false;
     }
     
 	public boolean enablePluginCommand( CommandSender sender, String label, String[] split )
@@ -99,6 +95,20 @@ public class pluginManagerCommand implements CommandExecutor {
 			control.enablePlugin( p );
 			sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Action.PluginEnabled" ), split[1] ) ) );
 		}
+		return true;
+	}
+	
+	public boolean helpPluginCommand( CommandSender sender, String label, String[] split )
+	{
+		if( !hasPermission( sender, "pluginmanager.help" ) )
+			return true;
+		
+		if( split.length < 2 )
+		{
+			sender.sendMessage( ChatColor.GOLD + "/" + label + " " + ChatColor.translateAlternateColorCodes( '&', plugin.language.getString( "Command.Description.Help" ) ) );
+			return true;
+		}
+		
 		return true;
 	}
 	
