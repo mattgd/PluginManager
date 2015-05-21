@@ -1,0 +1,8 @@
+Updater:
+  StartCheck: true
+  Notify: true
+  # Allowed values are Stable/Beta/Snapshot; Used to check for updates in each channel
+  Channel: Stable
+Language: en_US
+# Do not modify. Things can and most likely WILL break if you do.
+ConfigVersion: 0.1

@@ -25,16 +25,8 @@ public class PluginManagerReloaded extends JavaPlugin {
 	
 	private void initConfig( )
 	{
-		FileConfiguration config = getConfig( );
 		if( !new File( getDataFolder( ), "config.yml" ).exists( ) ) 
-		{
-			config.addDefault( "Updater.Notify", true );
-			config.addDefault( "Language", "en_US" );
-			config.addDefault( "ConfigVersion", 0.1);
-			config.addDefault( "Debug", false );
-			config.options( ).copyDefaults( true );
-			saveConfig( );
-		}
+			saveResource( "config.yml", false );
 		
 		String[] langArray = {"en_US"};
 		for( String string : langArray )
