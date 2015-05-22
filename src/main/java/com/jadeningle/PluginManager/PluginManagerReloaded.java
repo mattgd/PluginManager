@@ -26,15 +26,18 @@ public class PluginManagerReloaded extends JavaPlugin {
 		initConfig( );
 		selfUpdateChecker = new SelfUpdateChecker( this );
 		selfUpdateChecker.startUpdateCheck( );
-		try
+		if( getConfig( ).getBoolean( "Statistics" ) )
 		{
-	        Metrics metrics = new Metrics( this );
-	        metrics.start( );
-	    }
-		catch( IOException e )
-		{
-	        e.printStackTrace( );
-	    }
+			try
+			{
+		        Metrics metrics = new Metrics( this );
+		        metrics.start( );
+		    }
+			catch( IOException e )
+			{
+		        e.printStackTrace( );
+		    }
+		}
 		getLogger( ).info( "Plugin Manager Reloaded is now enabled!" );
 	}
 	

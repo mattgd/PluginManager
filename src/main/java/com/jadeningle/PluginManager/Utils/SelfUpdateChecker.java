@@ -59,8 +59,9 @@ public class SelfUpdateChecker {
 					{
 						if( updateAvailable( uMajor, uMinor, uRev, cVersion ) )
 						{
-							plugin.update = String.format( plugin.language.getString( "Response.Action.UpdateAvailable" ), uChannel, uMajor, uMinor, uRev );
-							log.info( ChatColor.translateAlternateColorCodes( '&', plugin.update ) );
+							log.info( String.format( plugin.language.getString( "Response.Action.UpdateAvailable" ), uChannel, uMajor, uMinor, uRev ) );
+							plugin.update = String.format( ChatColor.GREEN + plugin.language.getString( "Response.Action.UpdateAvailable" ), ChatColor.RED + uChannel + ChatColor.GREEN, ChatColor.RED + "" + uMajor, uMinor, uRev + "" + ChatColor.GREEN );
+							
 						}
 					}
 				}

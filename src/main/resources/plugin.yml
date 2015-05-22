@@ -1,5 +1,5 @@
 name: PluginManagerReloaded
-version: 1.0.0
+version: ${project.version}
 author: lvletei
 authors: [obnoxint, Technius]
 description: A plugin used for managing plugins

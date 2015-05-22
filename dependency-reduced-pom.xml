@@ -5,6 +5,12 @@
   <artifactId>PluginManager-Reloaded</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -54,7 +60,7 @@
     <dependency>
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>
-      <version>1.8.3-R0.1-SNAPSHOT</version>
+      <version>1.8.5-R0.1-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

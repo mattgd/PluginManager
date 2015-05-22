@@ -76,30 +76,30 @@ public class Control {
 	
 	public void enablePlugin( final Plugin plugin )
 	{
-		Bukkit.getServer( ).getPluginManager( ).enablePlugin( plugin );
+		Bukkit.getPluginManager( ).enablePlugin( plugin );
 	}
 	
 	public void disablePlugin( final Plugin plugin )
 	{
-		Bukkit.getServer( ).getPluginManager( ).disablePlugin( plugin );
+		Bukkit.getPluginManager( ).disablePlugin( plugin );
 	}
 	
 	public Plugin loadPlugin( final File plugin )
 	{
-        Plugin pl; 
+        Plugin p; 
         try
         {
-            pl = Bukkit.getServer( ).getPluginManager( ).loadPlugin( plugin );
+            p = Bukkit.getPluginManager( ).loadPlugin( plugin );
             try
             {
-                pl.onLoad( );
+                p.onLoad( );
             }
             catch( final Exception e )
             {
             	System.out.println( String.format( this.plugin.language.getString( "Response.Error.FailedonLoad" ), plugin.getName( ) ) );
                 e.printStackTrace( );
             }
-            return pl;
+            return p;
         }      
         catch( InvalidPluginException | InvalidDescriptionException | UnknownDependencyException e )
         {
@@ -155,6 +155,10 @@ public class Control {
 					}
 				}
 			}
+		}
+		for( Plugin p : reload)
+		{
+			Bukkit.getServer( ).broadcastMessage( p.getName( ) + "\n" );
 		}
 		try 
 		{

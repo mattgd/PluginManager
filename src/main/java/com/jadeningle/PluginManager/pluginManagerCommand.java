@@ -98,20 +98,6 @@ public class pluginManagerCommand implements CommandExecutor {
 		return true;
 	}
 	
-	public boolean helpPluginCommand( CommandSender sender, String label, String[] split )
-	{
-		if( !hasPermission( sender, "pluginmanager.help" ) )
-			return true;
-		
-		if( split.length < 2 )
-		{
-			sender.sendMessage( ChatColor.GOLD + "/" + label + " " + ChatColor.translateAlternateColorCodes( '&', plugin.language.getString( "Command.Description.Help" ) ) );
-			return true;
-		}
-		
-		return true;
-	}
-	
 	public boolean disablePluginCommand( CommandSender sender, String label, String[] split )
 	{
 		if( !hasPermission( sender, "pluginmanager.disable" ) )
@@ -148,7 +134,7 @@ public class pluginManagerCommand implements CommandExecutor {
 			return true;
 		}
 		
-		final File toLoad = new File("plugins" + File.separator + split[1] + ( split[1].endsWith( ".jar" ) ? "" : ".jar" ) );
+		final File toLoad = new File( "plugins" + File.separator + split[1] + ( split[1].endsWith( ".jar" ) ? "" : ".jar" ) );
 		
 		if( !toLoad.exists( ) )
 		{
@@ -232,9 +218,9 @@ public class pluginManagerCommand implements CommandExecutor {
 				return true;
 			}
 			
-			File name = new File( "plugins" + File.separator + file.getName( ).substring( 0, file.getName( ).length( ) - 4 ) );
+			File name = new File( "plugins" + File.separator + file.getName( ) );
 			JavaPlugin loaded = null;
-			if( control.unloadPlugin( p, false ) )
+			if( !control.unloadPlugin( p, false ) )
 				sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Error.UnloadError" ), split[1] ) ) );
 			else if( ( loaded = (JavaPlugin)control.loadPlugin( name ) ) == null )
 				sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Error.ReloadError" ), split[1] ) ) );
