@@ -1,9 +1,8 @@
-name: PluginManager
-version: 0.0.1-Snapshot
+name: PluginManagerReloaded
+version: 1.0.0
 author: lvletei
 authors: [obnoxint, Technius]
 description: A plugin used for managing plugins
-soft-depends: [PerWorldPlugins, MCore]
 main: com.jadeningle.PluginManager.PluginManagerReloaded
 
 commands:
@@ -12,7 +11,7 @@ commands:
         aliases: [plman, plm, pm]
 permissions:
     pluginmanager.*:
-        default: false
+        default: op
         description: Gives all PluginManager permissions
         children:
             pluginmanager.list: true
@@ -23,6 +22,7 @@ permissions:
             pluginmanager.reload: true
             pluginmanager.show: true
             pluginmanager.softreload: true
+            pluginmanager.notify: true
     pluginmanager.list:
         default: false
     pluginmanager.enable:
@@ -38,5 +38,7 @@ permissions:
     pluginmanager.show:
         default: false
     pluginmanager.softreload:
+        default: false
+    pluginmanager.notify:
         default: false
         

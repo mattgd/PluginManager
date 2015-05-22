@@ -19,7 +19,7 @@ Response:
     NoPlugin: "&cNo such plugin: %s"
     AlreadyEnabled: "&c%s is already enabled!"
     AlreadyDisabled: "&c%s is already disabled!"
-    NoSuchFile: "&cNo such file: %s.jar"
+    NoSuchFile: "&cNo such file: %s"
     NoDescriptionFile: "&cJar file doesn't contain a plugin.yml file: %s"
     AlreadyLoaded: "&c%s is already loaded!"
     PluginNotLoaded: "&cFailed to load %s! (Check console for details.)"
@@ -32,6 +32,9 @@ Response:
     PluginEnabled: "&a%s enabled!"
     PluginDisabled: "&a%s disabled!"
     PluginLoaded: "&a%1$s %2$s loaded!"
+    PluginUnloaded: "&a%1$s %2$s unloaded successfully."
+    PluginReloaded: "&a%s reloaded successfully."
+    PluginSreloaded: "&a%1$s %2$s soft-reloaded successfully."
     List:
       Enabled: "&aEnabled plugins: %s"
       Disabled: "&aDisabled plugins: &c%s"

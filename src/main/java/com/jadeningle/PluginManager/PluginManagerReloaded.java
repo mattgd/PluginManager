@@ -1,11 +1,13 @@
 package com.jadeningle.PluginManager;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.mcstats.Metrics;
 
 import com.jadeningle.PluginManager.Utils.JoinNotify;
 import com.jadeningle.PluginManager.Utils.SelfUpdateChecker;
@@ -24,6 +26,15 @@ public class PluginManagerReloaded extends JavaPlugin {
 		initConfig( );
 		selfUpdateChecker = new SelfUpdateChecker( this );
 		selfUpdateChecker.startUpdateCheck( );
+		try
+		{
+	        Metrics metrics = new Metrics( this );
+	        metrics.start( );
+	    }
+		catch( IOException e )
+		{
+	        e.printStackTrace( );
+	    }
 		getLogger( ).info( "Plugin Manager Reloaded is now enabled!" );
 	}
 	

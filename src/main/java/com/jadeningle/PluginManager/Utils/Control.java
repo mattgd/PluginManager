@@ -128,7 +128,7 @@ public class Control {
 				{
 					for( final String s : depend )
 					{
-						if( s.equals( plugin.getName( ) ) )
+						if( s.equals( pName ) )
 						{
 							if( !reload.contains( p ) )
 							{
@@ -144,7 +144,7 @@ public class Control {
 				{
 					for( final String s : softDepend )
 					{
-						if( s.equals( plugin.getName( ) ) )
+						if( s.equals( pName ) )
 						{
 							if( !reload.contains( p ) )
 							{

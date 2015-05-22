@@ -173,7 +173,7 @@ public class pluginManagerCommand implements CommandExecutor {
 		if( ( p = control.loadPlugin( toLoad ) ) != null)
 		{
 			control.enablePlugin( p );
-			sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Action.PluginLoaded" ), plugin.getDescription( ).getName( ), plugin.getDescription( ).getVersion( ) ) ) );
+			sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Action.PluginLoaded" ), p.getDescription( ).getName( ), p.getDescription( ).getVersion( ) ) ) );
 		}
 		else
 			sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Error.PluginNotLoaded" ), split[1] ) ) );
@@ -199,7 +199,7 @@ public class pluginManagerCommand implements CommandExecutor {
 		else 
 		{
 			if( control.unloadPlugin( p, true ) )
-			    sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Action.PluginUnloaded" ), plugin.getDescription( ).getName( ), plugin.getDescription( ).getVersion( ) ) ) );
+			    sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Action.PluginUnloaded" ), p.getDescription( ).getName( ), p.getDescription( ).getVersion( ) ) ) );
 			else
 				sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Error.PluginNotUnloaded" ), split[1] ) ) );
 		}
