@@ -28,6 +28,7 @@ Response:
     UnloadFailed: "&cFailed to unload %s! (Check console for details.)"
     NoJar: "&c%s's jar file is missing!"
   Action:
+    UpdateAvailable: "&aThere is a new &c%1$s &abuild &c%2s.%3s.%4s &aavailable for PluginManager"
     PluginEnabled: "&a%s enabled!"
     PluginDisabled: "&a%s disabled!"
     PluginLoaded: "&a%1$s %2$s loaded!"
