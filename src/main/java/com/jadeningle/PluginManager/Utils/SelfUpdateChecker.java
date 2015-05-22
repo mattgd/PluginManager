@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.logging.Logger;
 
+import org.bukkit.ChatColor;
+
 import com.jadeningle.PluginManager.PluginManagerReloaded;
  
 public class SelfUpdateChecker {
@@ -58,7 +60,7 @@ public class SelfUpdateChecker {
 						if( updateAvailable( uMajor, uMinor, uRev, cVersion ) )
 						{
 							plugin.update = String.format( plugin.language.getString( "Response.Action.UpdateAvailable" ), uChannel, uMajor, uMinor, uRev );
-							log.info( plugin.update );
+							log.info( ChatColor.translateAlternateColorCodes( '&', plugin.update ) );
 						}
 					}
 				}
