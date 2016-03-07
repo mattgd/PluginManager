@@ -14,12 +14,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.jadeningle.PluginManager.Utils.Control;
 
-public class pluginManagerCommand implements CommandExecutor {
+public class PluginManagerCommand implements CommandExecutor {
 	
 	private final PluginManagerReloaded plugin;
 	private final Control control;
 	
-	public pluginManagerCommand( PluginManagerReloaded instance )
+	public PluginManagerCommand( PluginManagerReloaded instance )
 	{
 		plugin = instance;
 		control = new Control( instance );

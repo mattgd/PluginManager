@@ -21,7 +21,10 @@ public class PluginManagerReloaded extends JavaPlugin {
 	@Override
 	public void onEnable( ) 
 	{
-		getCommand( "pluginmanager" ).setExecutor( new pluginManagerCommand( this ) );
+		getCommand( "pluginmanager" ).setExecutor( new PluginManagerCommand( this ) );
+		getCommand( "pluginmanager" ).setTabCompleter( new PluginManagerTabCompleter( ) );
+
+
 		Bukkit.getPluginManager( ).registerEvents( new JoinNotify( this ), this );
 		initConfig( );
 		selfUpdateChecker = new SelfUpdateChecker( this );
@@ -64,5 +67,6 @@ public class PluginManagerReloaded extends JavaPlugin {
 		
 		language = YamlConfiguration.loadConfiguration(  new File( getDataFolder( ) + File.separator + "localization", this.getConfig( ).getString( "Language" ) + ".yml") );
 	}
+
 	
 }

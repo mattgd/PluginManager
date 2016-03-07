@@ -87,10 +87,7 @@ public class SelfUpdateChecker {
 		}
 		else
 			cRev = Integer.parseInt( cVersion[2] );
-		
-		if( uMajor > cMajor || uMinor > cMinor || uRev > cRev )
-			return true;
-		
-		return false;
+
+		return uMajor > cMajor || uMinor > cMinor || uRev > cRev;
 	}
 }
