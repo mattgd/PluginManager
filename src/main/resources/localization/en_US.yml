@@ -12,6 +12,7 @@ Command:
     Show: "show <plugin> &b- Shows detailed information about a plugin"
     List: "list [options] &b- Lists plugins with specified options"
     ListOptions: "&eList options\n&e-v &6- Shows plugins with versions\n&e-o &6- Lists options\n&e-a &6- Lists plugins in alphabetical order\n&e-s:name &6- Lists plugins containing the given name"
+    ConfigReload: "configreload <plugin> &b- Reloads a plugin's config file."
 Response:
   Error:
     NoCommand: "&cCommand %2$s not found. Try /%1$s for help!"
@@ -38,6 +39,7 @@ Response:
     List:
       Enabled: "&aEnabled plugins: %s"
       Disabled: "&aDisabled plugins: &c%s"
+    ConfigReload: "&a%s's config reloaded successfully."
   Show:
     Name: "&bPlugin information: &a%s&b"
     Status: 

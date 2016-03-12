@@ -12,7 +12,7 @@ import java.util.List;
 
 public class PluginManagerTabCompleter implements TabCompleter
 {
-	private List<String> params = Arrays.asList( "disable", "enable", "sreload", "reload", "unload", "show" );
+	private List<String> params = Arrays.asList( "disable", "enable", "sreload", "reload", "unload", "show", "configreload" );
 
 	private boolean checkparam( String args )
 	{
@@ -32,7 +32,7 @@ public class PluginManagerTabCompleter implements TabCompleter
 		{
 			for (String param:params)
 			{
-				if( param.startsWith( args[0] ) )
+				if( param.toLowerCase( ).startsWith( args[0].toLowerCase( ) ) )
 					list.add( param );
 			}
 		}

@@ -42,7 +42,7 @@ public class PluginManagerCommand implements CommandExecutor {
     {
     	if( split.length == 0 )
     	{
-			String[] listArray = {"Enable", "Disable", "Load", "Unload", "Reload", "Sreload", "Show", "List"};
+			String[] listArray = {"Enable", "Disable", "Load", "Unload", "Reload", "Sreload", "Show", "List", "ConfigReload"};
 			sender.sendMessage( ChatColor.GREEN + "|------------------" + ChatColor.GRAY + "PluginManager Help" + ChatColor.GREEN + "------------------|" );
 			for( String string : listArray )
 				sender.sendMessage( ChatColor.GOLD + "/" + label + " " + ChatColor.translateAlternateColorCodes( '&', plugin.language.getString( "Command.Description." + string ) ) );
@@ -67,6 +67,8 @@ public class PluginManagerCommand implements CommandExecutor {
 				return showPluginCommand( sender, label, split );
 			case "list":
 				return listPluginCommand( sender, label, split );
+			case "configreload":
+				return reloadConfigCommand( sender, label, split );
 			default:
 				sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Error.NoCommand" ), label, split[0] ) ) );
 				return true;
@@ -394,6 +396,25 @@ public class PluginManagerCommand implements CommandExecutor {
 		if( !disabledList.isEmpty( ) )
 		    sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Action.List.Disabled" ), disabledList ) ) );
 			
+		return true;
+	}
+	private boolean reloadConfigCommand( final CommandSender sender, final String label, final String[] split )
+	{
+		if( !hasPermission( sender, "pluginmanager.configreload" ) )
+			return true;
+
+		final Plugin p;
+
+		if( split.length < 2 )
+			p = plugin;
+		else
+			p = Bukkit.getServer( ).getPluginManager().getPlugin( split[1] );
+
+		if( p == null)
+			sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Error.NoPlugin" ), split[1] ) ) );
+
+		p.reloadConfig( );
+		sender.sendMessage( ChatColor.translateAlternateColorCodes( '&', String.format( plugin.language.getString( "Response.Action.ConfigReload" ), p.getDescription( ).getName( ) ) ) );
 		return true;
 	}
 }

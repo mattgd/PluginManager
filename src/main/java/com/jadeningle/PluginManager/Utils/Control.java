@@ -4,10 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 
@@ -15,6 +12,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.command.SimpleCommandMap;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.InvalidDescriptionException;
 import org.bukkit.plugin.InvalidPluginException;
 import org.bukkit.plugin.Plugin;
@@ -77,11 +76,50 @@ public class Control {
 	public void enablePlugin( final Plugin plugin )
 	{
 		Bukkit.getPluginManager( ).enablePlugin( plugin );
+		File file = new File( this.plugin.getDataFolder( ), "List.yml");
+		if( file.exists( ) )
+		{
+			FileConfiguration disabled = YamlConfiguration.loadConfiguration( file );
+			List<String> list = disabled.getStringList( "Disabled" );
+			if( list.contains( plugin.getName( ) ) )
+				list.remove( plugin.getName( ) );
+			disabled.set( "Disabled", list );
+
+			try {
+				disabled.save( file );
+			} catch( Exception e ) {
+				e.printStackTrace( );
+			}
+		}
 	}
 	
 	public void disablePlugin( final Plugin plugin )
 	{
 		Bukkit.getPluginManager( ).disablePlugin( plugin );
+		File file = new File( this.plugin.getDataFolder( ), "List.yml");
+		if( !file.exists( ) )
+		{
+			try
+			{
+				file.createNewFile( );
+			}
+			catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+		FileConfiguration disabled = YamlConfiguration.loadConfiguration( file );
+		List<String> list = disabled.getStringList( "Disabled" );
+		if( !list.contains( plugin.getName( ) ) )
+			list.add( plugin.getName( ) );
+		disabled.set( "Disabled", list );
+		try
+		{
+			disabled.save( file );
+		}
+		catch( Exception e )
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	public Plugin loadPlugin( final File plugin )
@@ -114,10 +152,10 @@ public class Control {
 		PluginManager pluginManager = Bukkit.getPluginManager( );
 		
 		String pName = plugin.getName( );
-		List<Plugin> plugins = null;
-		Map<String, Plugin> names = null;
-		Map<String, Command> commands = null;
-		ArrayList<Plugin> reload = new ArrayList<Plugin>( );
+		List<Plugin> plugins;
+		Map<String, Plugin> names;
+		Map<String, Command> commands;
+		ArrayList<Plugin> reload = new ArrayList<>( );
 		
 		if( ReloadDependents )
 		{
@@ -262,7 +300,11 @@ public class Control {
 	        }
         }
 
-		return true;
+		File loaded = getFile( (JavaPlugin) plugin );
+		File unloaded = new File( getFile( (JavaPlugin) plugin ) + ".unloaded" );
+
+
+		return loaded.renameTo( unloaded );
 	}
 	
 }
