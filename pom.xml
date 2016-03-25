@@ -2,10 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jadeningle</groupId>
   <artifactId>PluginManager-Reloaded</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.2</version>
   <packaging>jar</packaging>
     <build>
-        <finalName>${project.name}-testing</finalName>
   		<resources>
             <resource>
                 <directory>src/main/resources</directory>
