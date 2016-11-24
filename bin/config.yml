@@ -1,3 +1,0 @@
-language: en_US # Short locale code. Files found in /plugins/PluginManager/localization folder.
-# Do not modify. Things can and most likely WILL break if you do.
-config-version: 0.1
