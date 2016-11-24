@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PluginManagerTabCompleter implements TabCompleter {
+	
 	private List<String> params = Arrays.asList("disable", "enable", "sreload", "reload", "unload", "show",
 			"configreload");
 

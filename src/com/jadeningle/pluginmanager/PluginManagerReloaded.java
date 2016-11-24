@@ -26,7 +26,7 @@ public class PluginManagerReloaded extends JavaPlugin implements Listener {
 
 		initConfig();
 
-		File file = new File(getDataFolder(), "List.yml");
+		File file = new File(getDataFolder(), "list.yml");
 		if (file.exists()) {
 			final FileConfiguration disabled = YamlConfiguration.loadConfiguration(file);
 			boolean isReload = disabled.contains("Reload") && disabled.getBoolean("Reload");
@@ -65,7 +65,7 @@ public class PluginManagerReloaded extends JavaPlugin implements Listener {
 		String[] args = message.split(" ");
 		if (args.length == 1) {
 			if (args[0].equalsIgnoreCase("/reload") || args[0].equalsIgnoreCase("/rl")) {
-				File file = new File(getDataFolder(), "List.yml");
+				File file = new File(getDataFolder(), "list.yml");
 				if (!file.exists()) {
 					try {
 						file.createNewFile();

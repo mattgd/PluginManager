@@ -66,7 +66,7 @@ public class Control {
 
 	public void enablePlugin(final Plugin plugin) {
 		Bukkit.getPluginManager().enablePlugin(plugin);
-		File file = new File(this.plugin.getDataFolder(), "List.yml");
+		File file = new File(this.plugin.getDataFolder(), "list.yml");
 		if (file.exists()) {
 			FileConfiguration disabled = YamlConfiguration.loadConfiguration(file);
 			List<String> list = disabled.getStringList("Disabled");
@@ -84,7 +84,7 @@ public class Control {
 
 	public void disablePlugin(final Plugin plugin) {
 		Bukkit.getPluginManager().disablePlugin(plugin);
-		File file = new File(this.plugin.getDataFolder(), "List.yml");
+		File file = new File(this.plugin.getDataFolder(), "list.yml");
 		if (!file.exists()) {
 			try {
 				file.createNewFile();

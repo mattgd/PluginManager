@@ -1,9 +1,8 @@
 name: PluginManagerReloaded
 version: ${project.version}
-author: lvletei
-authors: [obnoxint, Technius]
-description: A plugin used for managing plugins
-main: com.jadeningle.PluginManager.PluginManagerReloaded
+authors: [lvletei, obnoxint, Technius, mattgd]
+description: Load and unload other plugins on the server
+main: com.jadeningle.pluginmanager.PluginManagerReloaded
 
 commands:
     pluginmanager:

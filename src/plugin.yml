@@ -1,5 +1,5 @@
 name: PluginManagerReloaded
-version: ${project.version}
+version: 1.0.0
 authors: [lvletei, obnoxint, Technius, mattgd]
 description: Load and unload other plugins on the server
 main: com.jadeningle.pluginmanager.PluginManagerReloaded

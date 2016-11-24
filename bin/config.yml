@@ -1,8 +1,3 @@
-Updater:
-  StartCheck: true  # Check for update in selected channel on startup.
-  Notify: true # Notify anyone with permission on joining that there is an update available.
-  Channel: Stable # Allowed values are Stable/Beta/Snapshot; Used to check for updates in each channel.
-Language: en_US # Short locale code. Files found in /plugins/PluginManager/localization folder.
-Statistics: true #True to allow collecting statistics on this plugin, false to deny
+language: en_US # Short locale code. Files found in /plugins/PluginManager/localization folder.
 # Do not modify. Things can and most likely WILL break if you do.
-ConfigVersion: 0.1
+config-version: 0.1
