@@ -20,6 +20,7 @@ public class PluginManagerTabCompleter implements TabCompleter {
 			if (args.equalsIgnoreCase(param))
 				return true;
 		}
+		
 		return false;
 	}
 
@@ -40,6 +41,7 @@ public class PluginManagerTabCompleter implements TabCompleter {
 				}
 			}
 		}
+		
 		return list;
 	}
 

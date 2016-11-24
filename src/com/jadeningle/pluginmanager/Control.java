@@ -48,12 +48,13 @@ public class Control {
 		} catch (InvalidDescriptionException | IOException ioe) {
 			ioe.printStackTrace();
 		}
+		
 		return null;
-
 	}
 
 	public File getFile(final JavaPlugin plugin) {
 		Field file;
+		
 		try {
 			file = JavaPlugin.class.getDeclaredField("file");
 			file.setAccessible(true);
@@ -61,6 +62,7 @@ public class Control {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 

@@ -50,13 +50,13 @@ public class PluginManagerReloaded extends JavaPlugin implements Listener {
 			}
 		}
 
-		getLogger().info("Plugin Manager Reloaded is now enabled!");
+		getLogger().info("PluginManager is now enabled!");
 	}
 
 	@Override
 	public void onDisable() {
 		language = null;
-		getLogger().info("Plugin Manager Reloaded is now disabled!");
+		getLogger().info("PluginManager is now disabled!");
 	}
 
 	@EventHandler
@@ -92,12 +92,12 @@ public class PluginManagerReloaded extends JavaPlugin implements Listener {
 
 		String[] langArray = { "en_US" };
 		for (String string : langArray) {
-			if (!new File(getDataFolder() + File.separator + "localization", string + ".yml").exists())
-				saveResource("localization" + File.separator + string + ".yml", false);
+			if (!new File(getDataFolder(), string + ".yml").exists())
+				saveResource(string + ".yml", false);
 		}
 
-		language = YamlConfiguration.loadConfiguration(new File(getDataFolder() + File.separator + "localization",
-				this.getConfig().getString("Language") + ".yml"));
+		language = YamlConfiguration.loadConfiguration(new File(getDataFolder(),
+				this.getConfig().getString("language") + ".yml"));
 	}
 
 }
